@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System - Home</title>
+    <link rel="stylesheet" href="inventory-design.css">
+</head>
+<body>
+    <div class="home-navbar">
+        <h1 id="welcomeMessage">Welcome to the Home Inventory System</h1>
+        <p id="inventoryDescription">Manage your inventory efficiently and effectively.</p>
+    </div>
+    
+    <hr class="line-break">
+
+    <div class="home-navigations-buttons">
+        <button  class="pushable" onclick="openSidebar('Add Item')">
+           <span class="shadow"></span>
+           <span class="edge"></span>
+           <span class="front">Add Item</span>
+        </button>
+        <button class="pushable" onclick="toggleDashboard()">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">View Dashboard</span>
+        </button>
+        <button class="pushable" onclick="openSidebar('Update Item')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">Update Item</span>
+        </button>
+        <button class="pushable" onclick="openSidebar('Delete Item')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">Delete Item</span>
+        </button>
+
+
+        <input type="text" class="home-searchbar" placeholder="Search items...">
+          <button class="pushable" onclick="navigateToSearchItems()">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">Search</span>
+        </button>
+        </input>
+
+    </div>
+    
+        <!--- DASHBOARD PANEL --->
+        <div id="dashboardPanel" style="display:none; padding: 20px; margin-top: 30px;">
+        <table class="dashboard-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td><td>Laptop</td><td>Electronics</td><td>12</td><td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>002</td><td>Office Chair</td><td>Furniture</td><td>5</td><td>Low Stock</td>
+                </tr>
+                <tr>
+                    <td>003</td><td>Notebook</td><td>Stationery</td><td>50</td><td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>004</td><td>Desk Lamp</td><td>Electronics</td><td>0</td><td>Out of Stock</td>
+                </tr>
+                <tr>
+                    <td>005</td><td>Whiteboard</td><td>Furniture</td><td>3</td><td>Low Stock</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+        <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar-panel" id="sidebarPanel">
+    <div class="sidebar-header">
+        <span id="sidebarTitle">Panel</span>
+        <button class="sidebar-close-btn" onclick="closeSidebar()">✕</button>
+    </div>
+        <div class="sidebar-body">
+            <p id="sidebarContent">Content goes here.</p>
+            <input type="text" id="sidebarInput" placeholder="Enter text...">
+        </div>
+
+
+<script src="inventoryFunction.js"></script>
+</body>
+</html>

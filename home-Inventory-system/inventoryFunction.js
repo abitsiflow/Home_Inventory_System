@@ -15,3 +15,17 @@ function toggleDashboard() {
     dashboard.style.display = dashboard.style.display === 'none' ? 'block' : 'none';
 }
   
+function addItem() {
+  const input = document.getElementById('sidebarInput');
+  const itemName = input.value.trim();
+
+  if (itemName === '') {
+    alert('Please enter an item name.');
+    return;
+  }
+
+  console.log('Item added:', itemName);
+  alert('Item added: ' + itemName);
+
+  input.value = ''; 
+}

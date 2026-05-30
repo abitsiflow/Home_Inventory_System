@@ -13,6 +13,6 @@ if ($name === "") {
 $stmt = $pdo->prepare("INSERT INTO items (name, category_id, quantity, status) VALUES (?, ?, ?, ?)");
 $stmt->execute([$name, $category_id, $quantity, $status]);
 
-header("Location: home-inventory-system/inventory.php");
+header("Location: ../home-inventory-system/inventory.php?reload=1");
 exit;
 ?>

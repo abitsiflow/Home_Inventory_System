@@ -76,27 +76,69 @@
     </div>
 
 
-    <form action="add_item.php" method="POST"> 
-        <div class="sidebar-body">
-            <p id="sidebarContent">Content goes here.</p>
-             <input type="text" name="name" id="sidebarInput" placeholder="Item name">
-                <input type="number" name="quantity" id="sidebarInput" placeholder="Quantity">
-                 <select name="category_id" id="sidebarInput">
+    <!-- ADD ITEM FORM -->
+        <div id="formAddItem" class="sidebar-body" style="display:none;">
+            <form action="../backend/add_item.php" method="POST">
+                <input type="text"   name="name" id="sidebarInput" placeholder="Item name" required>
+                <input type="number" name="quantity" id="sidebarInput"placeholder="Quantity" min="0">
+                <select name="category_id" id="sidebarInput">
                     <option value="1">Electronics</option>
                     <option value="2">Furniture</option>
                     <option value="3">Stationery</option>
                     <option value="4">Appliances</option>
                     <option value="5">Tools</option>
-                 </select>
-                <input type="hidden" name="status" id="sidebarInput" value="In Stock">
-            <button  type="submit" class="pushable" onclick="addItem()">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <span class="front">Add Item</span>
-            </button>    
+                </select>
+                <select name="status" id="sidebarInput">
+                    <option value="In Stock">In Stock</option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                <button type="submit" class="pushable">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">Add Item</span>
+                </button>
+            </form>
         </div>
-    </form>
 
+      <!-- UPDATE ITEM FORM -->
+        <div id="formUpdateItem" class="sidebar-body" style="display:none;">
+            <form action="../backend/update_item.php" method="POST">
+                <input type="number" name="id"    id="sidebarInput"   placeholder="Item ID" required>
+                <input type="text"   name="name"   id="sidebarInput"  placeholder="New name" required>
+                <input type="number" name="quantity" id="sidebarInput" placeholder="New quantity" min="0">
+                <select name="category_id" id="sidebarInput">
+                    <option value="1">Electronics</option>
+                    <option value="2">Furniture</option>
+                    <option value="3">Stationery</option>
+                    <option value="4">Appliances</option>
+                    <option value="5">Tools</option>
+                </select>
+                <select name="status" id="sidebarInput">
+                    <option value="In Stock">In Stock</option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                <button type="submit" class="pushable" ">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">Update Item</span>
+                </button>
+            </form>
+        </div>
+
+       <!-- DELETE ITEM FORM -->
+        <div id="formDeleteItem" class="sidebar-body" style="display:none;">
+            <form action="../backend/delete_item.php" method="POST">
+                <input type="number" name="id" id="sidebarInput" placeholder="Item ID" required>
+                <button type="submit" class="pushable">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">Delete Item</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
 <script src="inventoryFunction.js"></script>
 </body>

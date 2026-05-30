@@ -10,8 +10,9 @@ function closeSidebar() {
     document.getElementById('sidebarPanel').classList.remove('open');
 }
 
+const dashboard = document.getElementById('dashboardPanel');
+
 function toggleDashboard() {
-    const dashboard = document.getElementById('dashboardPanel');
     dashboard.style.display = dashboard.style.display === 'none' ? 'block' : 'none';
 }
   
@@ -26,6 +27,17 @@ function addItem() {
 
   console.log('Item added:', itemName);
   alert('Item added: ' + itemName);
-
+  dashboard.style.display = dashboard.style.display === 'none' ? 'block' : 'none';
   input.value = ''; 
+}
+
+
+function navigateToSearchItems() {
+    const query = document.querySelector(".home-searchbar").value.trim();
+    fetch("get_items.php?search=" + encodeURIComponent(query))
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById("dashboardTableBody").innerHTML = html;
+            document.getElementById("dashboardPanel").style.display = "block";
+        });
 }

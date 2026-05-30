@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="inventory-design.css">
 </head>
 <body>
+
+
     <div class="home-navbar">
         <h1 id="welcomeMessage">Welcome to the Home Inventory System</h1>
         <p id="inventoryDescription">Manage your inventory efficiently and effectively.</p>
@@ -59,22 +61,8 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>001</td><td>Laptop</td><td>Electronics</td><td>12</td><td>In Stock</td>
-                </tr>
-                <tr>
-                    <td>002</td><td>Office Chair</td><td>Furniture</td><td>5</td><td>Low Stock</td>
-                </tr>
-                <tr>
-                    <td>003</td><td>Notebook</td><td>Stationery</td><td>50</td><td>In Stock</td>
-                </tr>
-                <tr>
-                    <td>004</td><td>Desk Lamp</td><td>Electronics</td><td>0</td><td>Out of Stock</td>
-                </tr>
-                <tr>
-                    <td>005</td><td>Whiteboard</td><td>Furniture</td><td>3</td><td>Low Stock</td>
-                </tr>
+            <tbody id="dashboardTableBody">
+                <!-- Dashboard data will be dynamically inserted here -->
             </tbody>
         </table>
     </div>
@@ -86,15 +74,28 @@
         <span id="sidebarTitle">Panel</span>
         <button class="sidebar-close-btn" onclick="closeSidebar()">✕</button>
     </div>
+
+
+    <form action="add_item.php" method="POST"> 
         <div class="sidebar-body">
             <p id="sidebarContent">Content goes here.</p>
-            <input type="text" id="sidebarInput" placeholder="Enter text...">
-            <button  class="pushable" onclick="addItem()">
+             <input type="text" name="name" id="sidebarInput" placeholder="Item name">
+                <input type="number" name="quantity" id="sidebarInput" placeholder="Quantity">
+                 <select name="category_id" id="sidebarInput">
+                    <option value="1">Electronics</option>
+                    <option value="2">Furniture</option>
+                    <option value="3">Stationery</option>
+                    <option value="4">Appliances</option>
+                    <option value="5">Tools</option>
+                 </select>
+                <input type="hidden" name="status" id="sidebarInput" value="In Stock">
+            <button  type="submit" class="pushable" onclick="addItem()">
                 <span class="shadow"></span>
                 <span class="edge"></span>
                 <span class="front">Add Item</span>
-            </button>
+            </button>    
         </div>
+    </form>
 
 
 <script src="inventoryFunction.js"></script>

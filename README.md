@@ -99,7 +99,7 @@ http://localhost/Home_Inventory_System/home-Inventory-system/
 
 ## 📁 Project Structure
 
-
+````
 Home_Inventory_System/
 │
 ├── backend/
